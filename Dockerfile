@@ -2,6 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /sge
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 COPY . .
 
 RUN pip install --upgrade pip
@@ -11,4 +14,4 @@ RUN python manage.py migrate
 
 EXPOSE 8000
 
-CMD python manage.py runserver 0.0.0.0:8000
+CMD python manage.py runserver 0.0.0.0
